@@ -3,49 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenedSource - Confiance Radicale</title>
+  <title>OpenedSource - Le Prix de la Confiance Radicale</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;700&display=swap');
-    :root { --primary: #3b82f6; --secondary: #ec4899; --bg-dark: #0f172a; --text: #f1f5f9; --border: #475569; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg-dark); color: var(--text); margin: 0; line-height: 1.6; }
-    .nav { display: flex; justify-content: space-between; padding: 20px 50px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-    .banana { font-size: 30px; animation: bounce 2s infinite; }
-    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-    section { padding: 80px 50px; max-width: 1200px; margin: auto; text-align: center; }
-    h1 { font-family: 'Playfair Display', serif; font-size: 50px; margin-bottom: 20px; }
-    h1 em { color: var(--secondary); font-style: italic; }
-    .hero-img { width: 100%; max-width: 900px; border-radius: 20px; border: 1px solid var(--border); margin: 40px 0; }
-    .btn { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
-    .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(59,130,246,0.4); }
-    .email-form { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-    input { padding: 15px; border-radius: 8px; border: 1px solid var(--border); width: 100%; max-width: 350px; background: #1e293b; color: white; font-size: 16px; outline: none; }
-    input:focus { border-color: var(--primary); }
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="logo"><span class="banana">🍌</span> Opened<em>Source</em></div>
-    <div style="color: var(--primary); font-weight: bold;">🎯 Liste d'attente ouverte</div>
-  </nav>
-
-  <section>
-    <div style="text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: bold; margin-bottom: 10px;">Confiance Radicale</div>
-    <h1>La Fin des Secrets. <em>Confiance</em> pour Votre Couple.</h1>
-    <p style="font-size: 18px; color: #cbd5e1; max-width: 700px; margin: auto;">Le premier SaaS mondial de partage d'écran et d'audio en temps réel, basé sur un consentement 100% mutuel.</p>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
     
-    <img src="preview1.webp" class="hero-img" alt="OpenedSource Design">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     
-    <form action="https://formspree.io/f/mpqobevk" method="POST" class="email-form">
-      <input type="email" name="email" placeholder="Ton adresse e-mail" required>
-      <button type="submit" class="btn">REJOINDRE LE MOUVEMENT</button>
-    </form>
-
-    <img src="preview 2.webp" class="hero-img" alt="Centre de Confiance">
-  </section>
-
-  <footer style="padding: 40px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: #94a3b8;">
-    © 2026 OpenedSource. Construit sur le consentement mutuel.
-  </footer>
-</body>
-</html>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #ec4899;
+      --bg-dark: #0f172a;
+      --bg-darker: #0a0e27;
+      --bg-card: #1e293b;
+      --border: #475569;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --accent: #f59e0b;
+    }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* LE NOUVEAU LOGO PARFAIT (COMME SUR LA PHOTO) */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .banana {
+      font-size: 36px;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    
+    .os-circle {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 11px;
+      color: white;
+      right: -8px;
+      bottom: 0px;
+    }
+    
+    .os-circle.blue {
+      background: var(--primary);
+    }
+    
+    .os-circle.pink {
+      background: var(--secondary);
+      right: -2px;
+      bottom: 8px;
+      width: 26px;
+      height: 26px;
+    }
+    
+    .logo-text em {
+      font-style: italic;
+      color: var(--secondary);
+    }
+    
+    .nav-badge {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    section {
+      padding: 80px 50px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p.subtitle {
+      font-size: 19px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+    }
+    
+    .hero-img {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      margin: 40px 0;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* L'OFFRE FONDATEUR IRRESISTIBLE */
+    .lifetime-card {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3));
+      padding: 50px 40px;
+      border-radius: 25px;
+      border: 3px solid var(--accent);
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2);
+    }
+    
+    .badge-limited {
+      position: absolute;
+      top: 25px;
+      right: -35px;
+      background: var(--accent);
+      color: #000;
+      padding: 6px 45px;
+      transform: rotate(45deg);
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
