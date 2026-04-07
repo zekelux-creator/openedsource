@@ -16,10 +16,10 @@
     h1 { font-family: 'Playfair Display', serif; font-size: 50px; margin-bottom: 20px; }
     h1 em { color: var(--secondary); font-style: italic; }
     .hero-img { width: 100%; max-width: 900px; border-radius: 20px; border: 1px solid var(--border); margin: 40px 0; }
-    .btn { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; }
+    .btn { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(59,130,246,0.4); }
-    .email-form { margin-top: 40px; }
-    input { padding: 15px; border-radius: 8px; border: 1px solid var(--border); width: 300px; background: #1e293b; color: white; }
+    .email-form { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    input { padding: 15px; border-radius: 8px; border: 1px solid var(--border); width: 100%; max-width: 350px; background: #1e293b; color: white; font-size: 16px; }
   </style>
 </head>
 <body>
@@ -35,10 +35,10 @@
     
     <img src="preview1.webp" class="hero-img" alt="OpenedSource Design">
     
-    <div class="email-form">
-      <input type="email" placeholder="Ton adresse e-mail">
-      <a href="#" class="btn">REJOINDRE LE MOUVEMENT</a>
-    </div>
+    <form action="https://formspree.io/f/mpqobevk" method="POST" class="email-form">
+      <input type="email" name="email" placeholder="Ton adresse e-mail" required>
+      <button type="submit" class="btn">REJOINDRE LE MOUVEMENT</button>
+    </form>
 
     <img src="preview 2.webp" class="hero-img" alt="Centre de Confiance">
   </section>
