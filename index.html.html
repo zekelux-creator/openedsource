@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenedSource - Confiance Radicale pour les Couples</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1e40af;
+      --secondary: #ec4899;
+      --accent: #f59e0b;
+      --bg-dark: #0f172a;
+      --bg-darker: #0a0e27;
+      --bg-card: #1e293b;
+      --bg-surface: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border: #475569;
+      --success: #10b981;
+    }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .banana {
+      font-size: 36px;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    
+    .os-circle {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 11px;
+      color: white;
+      right: -8px;
+      bottom: 0px;
+    }
+    
+    .os-circle.blue {
+      background: var(--primary);
+    }
+    
+    .os-circle.pink {
+      background: var(--secondary);
+      right: -2px;
+      bottom: 8px;
+      width: 26px;
+      height: 26px;
+    }
+    
+    .logo-text em {
+      font-style: italic;
+      color: var(--secondary);
+    }
+    
+    .nav-badge {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+      padding: 80px 48px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    
+    .hero-tag {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-sub {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+    
+    .hero-sub strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .hero-image {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1));
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    section {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    
+    .section-title em {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    
+    .section-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+    
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    
+    .feature-section {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    
+    .trust-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .trust-content h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    
+    .trust-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    .toggle {
+      width: 44px;
+      height: 24px;
+      background: var(--success);
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .toggle-dot {
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle.off {
+      background: var(--border);
+    }
+    
+    .toggle.off .toggle-dot {
+      right: auto;
+      left: 3px;
+    }
+    
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    
+    .pillar {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+    
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    
+    .pillar-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    .pillar-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    
+    .pillar-body {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+    .phone-mockup {
+      position: relative;
+      width: 280px;
+      height: 580px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1));
+      border-radius: 40px;
+      border: 8px solid var(--bg-darker);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    
+    .phone-content {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .screen-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      object-fit: cover;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 120px 48px;
+      text-align: center;
+    }
+    
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .email-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 40px auto;
+    }
+    
+    .email-input {
+      flex: 1;
+      padding: 14px 20px;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .email-input:focus {
+      border-color: var(--primary);
+      background: rgba(59, 130, 246, 0.05);
+    }
+    
+    .email-input::placeholder {
+      color: var(--text-secondary);
+    }
+    
+    .privacy-note {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 16px;
+    }
+    
+    .success-msg {
+      display: none;
+      color: var(--success);
+      padding: 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: 8px;
+      margin-top: 16px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    
+    .footer {
+      background: var(--bg-darker);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-inner, .two-col, .pillars {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .nav {
+        padding: 16px 20px;
+      }
+      
+      .hero {
+        padding: 40px 20px;
+      }
+      
+      section {
+        padding: 60px 20px;
+      }
+      
+      .email-form {
+        flex-direction: column;
+      }
+      
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">
+        <span class="banana">🍌</span>
+        <div class="os-circle blue">O</div>
+        <div class="os-circle pink">S</div>
+      </div>
+      <span>Opened<em>Source</em></span>
+    </div>
+    <div class="nav-badge">🎯 Liste d'attente ouverte</div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Confiance Radicale pour les Couples</div>
+        <h1 class="hero-title">La Fin des Secrets. <em>Confiance Radicale</em> pour Votre Couple.</h1>
+        <p class="hero-sub">Découvrez le premier SaaS qui <strong>diffuse l'écran et l'audio de votre partenaire, en temps réel.</strong> Construit sur un consentement 100 % mutuel.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="document.querySelector('.email-input').focus()">Rejoindre la Liste</button>
+          <button class="btn btn-secondary">En savoir plus</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/mnt/user-data/uploads/preview1.webp" alt="OpenedSource Interface">
+      </div>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <div>
+      <div class="section-label">Le problème</div>
+      <h2 class="section-title">Fatigué des <em>Doutes</em> Cachés ?</h2>
+      <p class="section-body">Dans un monde de connexion numérique permanente, la confiance peut devenir fragile. Des questions sans réponse, des soirées sur l'écran, des notifications inexpliquées — les petits doutes peuvent silencieusement éroder même les relations les plus solides.<br><br>OpenedSource propose une réponse moderne pour les couples qui choisissent la transparence totale afin de renforcer leur lien.</p>
+    </div>
+    <div class="feature-section">
+      <h3 style="margin-bottom: 20px; font-size: 18px;">Centre de Confiance</h3>
+      <div class="trust-item">
+        <div class="trust-content">
+          <h4>Partage d'écran</h4>
+          <p class="trust-sub">Actif · Les deux partenaires</p>
+        </div>
+        <div class="toggle"></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-content">
+          <h4>Flux audio</h4>
+          <p class="trust-sub">En pause · Appuyer pour reprendre</p>
+        </div>
+        <div class="toggle off"></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-content">
+          <h4>Notifications</h4>
+          <p class="trust-sub">Instantanées · Quand consulté</p>
+        </div>
+        <div class="toggle"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="section-label">Comment ça marche</div>
+      <h2 class="section-title">Vous êtes Toujours en <em>Contrôle.</em></h2>
+    </div>
+    
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Toujours Notifié</h3>
+        <p class="pillar-body">S'ils regardent, vous le savez. Une notification instantanée est envoyée dès que votre partenaire consulte votre écran. Zéro angle mort.</p>
+      </div>
+      
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Révoquer en 1 Clic</h3>
+        <p class="pillar-body">Arrêtez le partage à tout moment d'une simple pression. Votre consentement n'est jamais permanent — il vous appartient, toujours.</p>
+      </div>
+      
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Accès Mutuel</h3>
+        <p class="pillar-body">Une rue à double sens. La transparence est partagée équitablement — les deux partenaires ont le même accès. Pas de hiérarchie, pas d'exceptions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <div class="phone-mockup">
+      <div class="phone-content">
+        <img src="/mnt/user-data/uploads/preview_2.webp" alt="OpenedSource Mobile App" class="screen-img">
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Expérience Mobile</div>
+      <h2 class="section-title">Gérez Votre <em>Confiance</em> en Tous Lieux.</h2>
+      <p class="section-body">L'application mobile OpenedSource vous permet de contrôler vos paramètres de partage n'importe où. Notifications en temps réel, contrôle granulaire des permissions, et accès instant à votre centre de confiance.<br><br>Qu'importe où vous êtes, votre contrôle est toujours dans votre poche.</p>
+      <div class="cta-buttons" style="margin-top: 32px;">
+        <button class="btn btn-primary">Télécharger l'App</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="section-label">Accès Anticipé</div>
+      <h2 class="section-title">Rejoignez la Liste d'Attente <em>OpenedSource.</em></h2>
+      <p class="section-body" style="font-size: 16px; margin: 20px 0 0;">Soyez parmi les premiers à vivre la confiance radicale. Obtenez un accès anticipé avant notre lancement public.</p>
+      
+      <div class="email-form">
+        <input class="email-input" type="email" id="emailInput" placeholder="Votre adresse e-mail" />
+        <button class="btn btn-primary" onclick="handleSubmit()">Rejoindre</button>
+      </div>
+      
+      <p class="privacy-note">Nous respectons votre vie privée. Aucun spam. Juste un message au lancement.</p>
+      <div class="success-msg" id="successMsg">✓ Vous êtes sur la liste. On vous contacte au lancement.</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="logo" style="font-size: 16px;">
+      <div class="logo-icon" style="width: 40px; height: 40px;">
+        <span class="banana" style="font-size: 28px;">🍌</span>
+        <div class="os-circle blue" style="width: 20px; height: 20px; font-size: 8px;">O</div>
+        <div class="os-circle pink" style="width: 18px; height: 18px; font-size: 8px; right: -2px; bottom: 6px;">S</div>
+      </div>
+      <span>Opened<em>Source</em></span>
+    </div>
+    <div class="footer-copy">© 2026 OpenedSource. Construit sur le consentement mutuel.</div>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const input = document.getElementById('emailInput');
+      const successMsg = document.getElementById('successMsg');
+      const email = input.value.trim();
+      
+      if (!email || !email.includes('@')) {
+        input.style.borderColor = '#ef4444';
+        input.focus();
+        setTimeout(() => {
+          input.style.borderColor = 'var(--border)';
+        }, 1500);
+        return;
+      }
+      
+      document.querySelector('.email-form').style.display = 'none';
+      successMsg.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
