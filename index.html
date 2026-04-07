@@ -19,7 +19,8 @@
     .btn { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(59,130,246,0.4); }
     .email-form { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-    input { padding: 15px; border-radius: 8px; border: 1px solid var(--border); width: 100%; max-width: 350px; background: #1e293b; color: white; font-size: 16px; }
+    input { padding: 15px; border-radius: 8px; border: 1px solid var(--border); width: 100%; max-width: 350px; background: #1e293b; color: white; font-size: 16px; outline: none; }
+    input:focus { border-color: var(--primary); }
   </style>
 </head>
 <body>
@@ -44,7 +45,7 @@
   </section>
 
   <footer style="padding: 40px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: #94a3b8;">
-    © 2026 OpenedSource. Tous droits réservés.
+    © 2026 OpenedSource. Construit sur le consentement mutuel.
   </footer>
 </body>
 </html>
