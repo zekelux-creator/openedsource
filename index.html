@@ -1,24 +1,20 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenedSource - Le Prix de la Confiance Radicale</title>
+  <title>OpenedSource - Radical Trust for Modern Couples</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
     
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
       --primary: #3b82f6;
       --secondary: #ec4899;
       --bg-dark: #0f172a;
       --bg-darker: #0a0e27;
-      --bg-card: #1e293b;
       --border: #475569;
       --text-primary: #f1f5f9;
       --text-secondary: #cbd5e1;
@@ -33,7 +29,6 @@
       overflow-x: hidden;
     }
     
-    /* LE NOUVEAU LOGO PARFAIT (COMME SUR LA PHOTO) */
     .nav {
       display: flex;
       justify-content: space-between;
@@ -65,47 +60,22 @@
       position: relative;
     }
     
-    .banana {
-      font-size: 36px;
-      animation: bounce 2s infinite;
-    }
+    .banana { font-size: 36px; animation: bounce 2s infinite; }
     
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
     
     .os-circle {
       position: absolute;
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 11px;
-      color: white;
-      right: -8px;
-      bottom: 0px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 11px; color: white;
     }
     
-    .os-circle.blue {
-      background: var(--primary);
-    }
+    .os-circle.blue { background: var(--primary); right: -8px; bottom: 0px; }
+    .os-circle.pink { background: var(--secondary); right: -2px; bottom: 8px; width: 26px; height: 26px; }
     
-    .os-circle.pink {
-      background: var(--secondary);
-      right: -2px;
-      bottom: 8px;
-      width: 26px;
-      height: 26px;
-    }
-    
-    .logo-text em {
-      font-style: italic;
-      color: var(--secondary);
-    }
+    .logo-text em { font-style: italic; color: var(--secondary); }
     
     .nav-badge {
       background: rgba(59, 130, 246, 0.1);
@@ -117,71 +87,129 @@
       font-weight: 500;
     }
     
-    section {
-      padding: 80px 50px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    section { padding: 80px 50px; max-width: 900px; margin: 0 auto; text-align: center; }
     
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
+      font-size: 48px; font-weight: 700; line-height: 1.2;
+      margin-bottom: 24px; letter-spacing: -1px;
       background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     
     h1 em {
       font-style: italic;
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     
-    p.subtitle {
-      font-size: 19px;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      max-width: 650px;
-      margin: 0 auto 40px auto;
-    }
+    p.subtitle { font-size: 19px; line-height: 1.8; color: var(--text-secondary); max-width: 650px; margin: 0 auto 40px auto; }
     
     .hero-img {
-      width: 100%;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      margin: 40px 0;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      width: 100%; border-radius: 20px; border: 1px solid var(--border);
+      margin: 40px 0; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     }
     
-    /* L'OFFRE FONDATEUR IRRESISTIBLE */
     .lifetime-card {
       background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.3));
-      padding: 50px 40px;
-      border-radius: 25px;
-      border: 3px solid var(--accent);
-      margin: 60px 0;
-      position: relative;
-      overflow: hidden;
+      padding: 50px 40px; border-radius: 25px; border: 3px solid var(--accent);
+      margin: 60px 0; position: relative; overflow: hidden;
       box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2);
     }
     
     .badge-limited {
-      position: absolute;
-      top: 25px;
-      right: -35px;
-      background: var(--accent);
-      color: #000;
-      padding: 6px 45px;
-      transform: rotate(45deg);
-      font-weight: bold;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      position: absolute; top: 25px; right: -35px;
+      background: var(--accent); color: #000; padding: 6px 45px;
+      transform: rotate(45deg); font-weight: bold; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    
+    .old-price { text-decoration: line-through; color: #94a3b8; font-size: 26px; }
+    .price-tag { font-size: 75px; font-weight: 700; font-family: 'Playfair Display', serif; color: white; margin: 10px 0; }
+    .payment-notice { font-weight: 600; color: #f1f5f9; background: rgba(255, 255, 255, 0.05); padding: 8px 16px; border-radius: 8px; display: inline-block; margin-bottom: 20px; }
+    
+    .features-list { text-align: left; max-width: 420px; margin: 30px auto; list-style: none; padding: 0; }
+    .features-list li { margin-bottom: 12px; font-size: 15px; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+    .check-icon { color: var(--accent); font-weight: bold; }
+    
+    .email-form {
+      margin: 60px 0; display: flex; flex-direction: column; align-items: center; gap: 15px;
+      background: rgba(255, 255, 255, 0.03); padding: 50px; border-radius: 20px; border: 1px solid var(--border);
+    }
+    
+    input {
+      padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border);
+      width: 100%; max-width: 380px; background: #1e293b; color: white; font-size: 16px; outline: none;
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white; padding: 18px 45px; border-radius: 40px; text-decoration: none;
+      font-weight: 700; font-size: 19px; display: inline-block; transition: all 0.3s ease; border: none; cursor: pointer;
+    }
+    
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4); }
+    
+    @media (max-width: 768px) {
+      .nav { padding: 15px 20px; }
+      h1 { font-size: 34px; }
+      .price-tag { font-size: 55px; }
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">
+        <span class="banana">🍌</span>
+        <div class="os-circle blue">O</div>
+        <div class="os-circle pink">S</div>
+      </div>
+      <div class="logo-text">Opened<em>Source</em></div>
+    </div>
+    <div class="nav-badge">⚡ Early Bird Access</div>
+  </nav>
+
+  <section>
+    <div style="text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 600; font-size: 12px; margin-bottom: 12px;">Radical Trust for Modern Couples</div>
+    <h1>Stop the Secrets. <br>Start <em>Total Transparency.</em></h1>
+    <p class="subtitle">OpenedSource is the world's first SaaS that streams your partner's screen and audio in real-time. Built on 100% mutual consent.</p>
+    
+    <img src="preview1.webp" class="hero-img" alt="OpenedSource Design">
+
+    <div class="lifetime-card">
+      <div class="badge-limited">Limited</div>
+      <h2 style="font-family: 'Playfair Display', serif; margin-top: 0; color: var(--accent); font-size: 24px;">FOUNDER'S "SERENITY" PACK</h2>
+      <div class="old-price">$99.00</div>
+      <div class="price-tag">$29.99</div>
+      <div class="payment-notice">ONE-TIME PAYMENT - LIFETIME ACCESS</div>
+      <ul class="features-list">
+        <li><span class="check-icon">✓</span> Unlimited access to the app</li>
+        <li><span class="check-icon">✓</span> Live HD Screen & Audio sharing</li>
+        <li><span class="check-icon">✓</span> Zero monthly subscriptions - Ever</li>
+        <li><span class="check-icon">✓</span> All future updates included</li>
+      </ul>
+      <p style="font-style: italic; font-size: 14px; color: var(--text-secondary);">"Invest $30 today, secure your relationship forever."</p>
+    </div>
+
+    <img src="preview 2.webp" class="hero-img" alt="Control Center">
+
+    <div class="email-form">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 32px;">Secure Your Founder Spot</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 25px;">The $29.99 deal is reserved for the first 100 sign-ups from TikTok.</p>
+      
+      <form action="https://formspree.io/f/mpqobevk" method="POST" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit" class="btn">RESERVE MY LIFETIME ACCESS</button>
+      </form>
+      
+      <p style="font-size: 11px; color: #64748b; margin-top: 20px;">No spam. Just a notification at launch.</p>
+    </div>
+  </section>
+
+  <footer style="padding: 40px; border-top: 1px solid var(--border); text-align: center; font-size: 14px; color: #94a3b8; background: var(--bg-darker);">
+    © 2026 OpenedSource. The future of digital trust.
+  </footer>
+</body>
+</html>
